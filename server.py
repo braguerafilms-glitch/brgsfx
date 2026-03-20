@@ -192,5 +192,6 @@ if __name__ == "__main__":
         print("  Rode: export ELEVENLABS_API_KEY='sua_key'")
 
     print("\n→ Abrindo em: http://localhost:5000\n")
-    subprocess.Popen(["open", "http://localhost:5000"])
-    app.run(debug=False, port=5000)
+    port = int(os.getenv("PORT", 5000))
+    print(f"\n→ Rodando em: http://localhost:{port}\n")
+    app.run(debug=False, host="0.0.0.0", port=port)
